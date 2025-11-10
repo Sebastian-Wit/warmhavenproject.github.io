@@ -4,137 +4,167 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Warm Haven Project — Turning Waste Into Warmth</title>
-  <meta name="description" content="Warm Haven Project: Transforming recycled plastic into life-saving shelters for stray animals. Every $15 builds one shelter and saves one life." />
   <style>
     body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
       margin: 0;
-      line-height: 1.6;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: #f8f9fa;
       color: #222;
-      background: #fdfdfd;
+      line-height: 1.6;
+      scroll-behavior: smooth;
     }
+
     header {
-      background: linear-gradient(135deg, #2b5876, #4e4376);
+      background: linear-gradient(135deg, #2b6777, #52ab98);
       color: white;
       text-align: center;
-      padding: 4rem 2rem;
+      padding: 4rem 1rem 3rem;
     }
+
     header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
     }
+
     header p {
       font-size: 1.2rem;
       max-width: 700px;
       margin: 0 auto;
-      opacity: 0.9;
     }
-    nav {
-      background: #333;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 0.75rem 0;
-      flex-wrap: wrap;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: opacity 0.2s;
-    }
-    nav a:hover {
-      opacity: 0.7;
-    }
+
     section {
-      padding: 3rem 1.5rem;
       max-width: 900px;
-      margin: 0 auto;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
     }
+
     h2 {
-      color: #2b5876;
-      margin-top: 0;
+      color: #2b6777;
+      border-bottom: 2px solid #52ab98;
+      display: inline-block;
+      margin-bottom: 1rem;
     }
-    ul {
-      list-style: none;
-      padding: 0;
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    li::before {
-      content: "• ";
-      color: #4e4376;
-      font-weight: bold;
-    }
-    .cta {
+
+    .donation-box {
+      background: #eaf6f6;
+      padding: 2rem;
+      border-radius: 12px;
       text-align: center;
-      padding: 3rem 1rem;
-      background: #4e4376;
-      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
-    .cta h2 {
-      color: white;
+
+    .donation-box h3 {
+      color: #2b6777;
     }
-    .cta button {
-      background: white;
-      color: #4e4376;
-      border: none;
-      padding: 1rem 2rem;
-      border-radius: 5px;
-      font-size: 1.1rem;
+
+    .donation-amounts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .amount {
+      background: #52ab98;
+      color: white;
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
       font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
     }
-    .cta button:hover {
-      background: #f1f1f1;
-    }
+
     footer {
-      background: #222;
-      color: #bbb;
+      background: #2b6777;
+      color: white;
       text-align: center;
-      padding: 1.5rem;
-      font-size: 0.9rem;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
     }
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      .cta button {
-        width: 100%;
-      }
+
+    footer a {
+      color: #f8f9fa;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>🐾 Warm Haven Project</h1>
+    <p>Turning Waste Into Warmth — Transforming recycled plastic into life-saving shelters for animals in need.</p>
+  </header>
 
-<header>
-  <h1>Warm Haven Project</h1>
-  <p>Turning recycled plastic waste into life-saving shelters for stray animals — one $15 donation at a time.</p>
-</header>
+  <section>
+    <h2>🎬 Coming Soon: A Documentary on the Warm Haven Project</h2>
+    <p>Your support isn’t just building shelters — it’s helping tell a story. This project will be the subject of an upcoming documentary that shows how recycled plastic can save lives and transform communities. By donating, you become part of this journey, helping us capture the impact of compassion, innovation, and sustainability in action.</p>
+  </section>
 
-<nav>
-  <a href="#documentary">Documentary</a>
-  <a href="#mission">Mission</a>
-  <a href="#design">Design</a>
-  <a href="#impact">Impact</a>
-  <a href="#sponsor">Sponsor</a>
-</nav>
+  <section>
+    <h2>🐾 The Mission</h2>
+    <p>Every winter, countless stray cats and dogs struggle to survive freezing nights with nowhere to hide. At the same time, tons of plastic waste pile up in landfills and oceans. The Warm Haven Project solves both problems at once — by transforming recycled plastic waste into durable, insulated shelters that give animals a safe, warm place to rest.</p>
+    <p><strong>💲 Every $15 donated builds one real shelter — and saves one life.</strong></p>
+    <img src="IMG_9304.jpg" alt="Row of Warm Haven shelters providing refuge to stray animals">
+  </section>
 
-<section id="documentary">
-  <h2>🎬 Coming Soon: The Warm Haven Documentary</h2>
-  <p>
-    Your support isn’t just building shelters — it’s helping tell a story. The <strong>Warm Haven Project</strong> will be featured in an upcoming documentary that showcases how recycled plastic can save lives and transform communities.
-  </p>
-  <p>
-    By contributing, you become part of this journey — helping capture real stories of compassion, innovation, and sustainability in action.
-  </p>
-</section>
+  <section>
+    <h2>♻️ A Dual Mission: Saving Animals and the Planet</h2>
+    <p>When you donate, you’re doing two incredible things at once:</p>
+    <ul>
+      <li>You’re recycling discarded plastic, giving it new purpose instead of letting it harm the planet.</li>
+      <li>You’re building life-saving homes for stray cats and dogs who would otherwise suffer through the cold.</li>
+    </ul>
+    <p>Each shelter we make keeps plastic out of landfills and an animal out of danger. Your contribution doesn’t just help — it builds something real.</p>
+    <img src="IMG_9303.jpg" alt="Close-up of a single Warm Haven shelter made from recycled plastic">
+  </section>
 
-<section id="mission">
-  <h2>🐾 Our Mission — Turning Waste Into Warmth</h2>
-  <p>
-    Every winter, countless stray cats and dogs struggle to survive freezing nights with nowhere to hide. At the same time, plastic waste continues to pile up in landfills and oceans.
-  </p>
-  <p>
-    The <strong>Warm Haven Project</strong> solves both problems — transforming recycled plastic into insulated shelters that give animals warmth, safety, and a chance to live.
-  </
+  <section>
+    <h2>🏠 What Makes the Warm Haven Shelter Unique</h2>
+    <ul>
+      <li><strong>Recycled Plastic Shell:</strong> Made from reclaimed HDPE — lightweight, waterproof, and resilient against snow, rain, and heat.</li>
+      <li><strong>Double-Walled Insulation:</strong> A hollow core traps air, while an inner lining of recycled foam and reflective film keeps the inside up to 15°C warmer.</li>
+      <li><strong>Soft Interior:</strong> Each unit includes a washable fleece pad made from recycled textiles, giving animals a soft, insulated base.</li>
+      <li><strong>Windproof Door Flap:</strong> A flexible, clear vinyl flap blocks wind and rain but lets in daylight — keeping the shelter bright and warm.</li>
+      <li><strong>Stackable & Modular:</strong> Snap-fit panels make assembly easy, shipping cheap, and shelters connect into “clusters” for colonies of strays.</li>
+      <li><strong>Weather-Tested Design:</strong> Rounded edges resist wind lift and shed rain or snow efficiently, extending durability through multiple seasons.</li>
+    </ul>
+  </section>
+
+  <section class="donation-box">
+    <h3>💚 How Your Donation Translates Directly Into Shelter</h3>
+    <p>We want every donor to know exactly what their impact is.</p>
+    <div class="donation-amounts">
+      <div class="amount">$15 → One Shelter</div>
+      <div class="amount">$30 → Two Shelters</div>
+      <div class="amount">$75 → Five Shelters</div>
+      <div class="amount">$150 → Ten Shelters</div>
+    </div>
+    <p>Every contribution funds direct production — materials, insulation, and delivery — ensuring your donation creates something physical, visible, and life-saving.</p>
+    <img src="IMG_9305.jpg" alt="Kitten resting safely inside the shelter during a blizzard">
+  </section>
+
+  <section>
+    <h2>🌍 A Future Built from Recycled Hope</h2>
+    <p>We believe compassion and sustainability can work hand-in-hand. Every Warm Haven Shelter built is a step toward a world where nothing is wasted — not plastic, and not life. By donating, you’re creating more than comfort — you’re creating survival, dignity, and a cleaner planet.</p>
+  </section>
+
+  <section>
+    <h2>❤️ Join the Movement — Turn Waste Into Warmth</h2>
+    <p>It’s simple:</p>
+    <p><strong>💲 $15 = One Shelter = One Animal’s Life Saved</strong></p>
+    <p>Together, we can build a cleaner planet and a kinder world — one recycled piece at a time. Donate today. Build a shelter. Save a life.</p>
+  </section>
+
+  <footer>
+    <h3>Partner With Us</h3>
+    <p>We welcome sponsors and collaborators to amplify our mission and share in the impact.</p>
+    <p><strong>Contact:</strong> <a href="mailto:warmhaven@outlook.com">warmhaven@outlook.com</a></p>
+    <p>© 2025 Warm Haven Project — Turning Waste Into Warmth</p>
+  </footer>
+</body>
+</html>
