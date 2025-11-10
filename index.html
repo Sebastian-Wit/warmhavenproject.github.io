@@ -18,7 +18,7 @@
       background: linear-gradient(135deg, #2b6777, #52ab98);
       color: white;
       text-align: center;
-      padding: 5rem 1rem 3rem;
+      padding: 6rem 1rem 3rem;
       position: relative;
     }
 
@@ -27,12 +27,13 @@
       top: 0;
       left: 0;
       width: 100%;
-      background: rgba(43, 103, 119, 0.9);
+      background: rgba(43, 103, 119, 0.95);
       display: flex;
       justify-content: center;
       gap: 1.5rem;
       padding: 0.8rem 0;
       z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
     nav a {
@@ -40,6 +41,7 @@
       text-decoration: none;
       font-weight: bold;
       transition: 0.2s;
+      font-size: 0.95rem;
     }
 
     nav a:hover {
@@ -47,7 +49,7 @@
     }
 
     header h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       margin-bottom: 1rem;
     }
 
@@ -59,34 +61,42 @@
 
     section {
       max-width: 900px;
-      margin: 3rem auto;
+      margin: 4rem auto;
       padding: 0 1.5rem;
     }
 
     h2 {
       color: #2b6777;
-      border-bottom: 2px solid #52ab98;
+      border-bottom: 3px solid #52ab98;
       display: inline-block;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.2rem;
+    }
+
+    p {
       margin-bottom: 1rem;
     }
 
     img {
       width: 100%;
-      border-radius: 10px;
+      border-radius: 12px;
       margin: 1.5rem 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     }
 
     .donation-box {
       background: #eaf6f6;
-      padding: 2rem;
-      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      border-radius: 15px;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      margin: 2rem 0;
     }
 
     .donation-box h3 {
       color: #2b6777;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
     }
 
     .donation-amounts {
@@ -94,28 +104,75 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 1rem;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
     }
 
     .amount {
       background: #52ab98;
       color: white;
-      padding: 0.8rem 1.2rem;
-      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
       font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .amount:hover {
+      background: #2b6777;
+    }
+
+    .impact-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 2rem 0;
+      justify-content: center;
+    }
+
+    .stat-box {
+      background: #52ab98;
+      color: white;
+      padding: 1.2rem 1.5rem;
+      border-radius: 12px;
+      flex: 1 1 200px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .stat-box:hover {
+      background: #2b6777;
     }
 
     footer {
       background: #2b6777;
       color: white;
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 3rem 1rem;
       margin-top: 4rem;
     }
 
     footer a {
       color: #f8f9fa;
       text-decoration: underline;
+    }
+
+    button.donate-btn {
+      background: #52ab98;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: 0.2s;
+    }
+
+    button.donate-btn:hover {
+      background: #2b6777;
     }
   </style>
 </head>
@@ -141,52 +198,51 @@
   <!-- Documentary -->
   <section id="documentary">
     <h2>🎬 Coming Soon: A Documentary on the Warm Haven Project</h2>
-    <p>Your support isn’t just building shelters — it’s helping tell a story. This project will be the subject of an upcoming documentary that follows our journey from collecting plastic waste to distributing shelters to animals in need. The film will highlight the impact of compassion, innovation, and sustainability, and showcase the organizations and sponsors who make this work possible. By joining the project, you become part of this story.</p>
-    <p>The documentary captures volunteer teams assembling shelters, animals benefiting directly, and community engagement in high-need areas. Sponsors and partners are highlighted, demonstrating their commitment to sustainability and animal welfare. It inspires global audiences by showing how practical, innovative solutions can create measurable social and environmental impact while offering a platform for sponsors to show their positive contributions.</p>
+    <p>Your support isn’t just building shelters — it’s helping tell a story. The Warm Haven Project will be the focus of an upcoming documentary that follows our journey from collecting plastic waste to distributing shelters to animals in need. The film will highlight the impact of compassion, innovation, and sustainability, and showcase the organizations and sponsors who make this work possible.</p>
+    <p>The documentary will follow volunteer teams, the manufacturing process, and the animals who directly benefit. Sponsors are highlighted, demonstrating their commitment to positive social and environmental change. This film aims to inspire global audiences and provide a platform for sponsors to showcase their impact.</p>
   </section>
 
   <!-- Mission -->
   <section id="mission">
     <h2>🐾 The Mission</h2>
-    <p>Every winter, countless stray cats and dogs struggle to survive freezing nights with nowhere to hide. Simultaneously, tons of plastic waste accumulate in landfills and oceans, causing environmental harm. The Warm Haven Project addresses both problems at once: turning recycled plastic into durable, insulated shelters that give animals a safe, warm place to rest.</p>
+    <p>Every winter, countless stray cats and dogs struggle to survive freezing nights. Simultaneously, plastic waste accumulates in landfills and oceans. The Warm Haven Project solves both problems by transforming recycled HDPE plastic into durable, insulated shelters that give animals a safe, warm place to rest.</p>
     <p><strong>💲 Every $15 donated builds one real shelter — and saves one life.</strong></p>
     <img src="IMG_9304.jpeg" alt="Row of Warm Haven shelters providing refuge to stray animals">
-    <p>Each shelter is approximately 60 cm x 50 cm x 50 cm, large enough for an adult cat or small dog, with a removable fleece pad for added warmth. Our goal is to produce up to 1,000 shelters in the first phase, distributing them in urban and suburban areas with the highest stray animal populations.</p>
-    <p>We coordinate with local animal welfare organizations to identify the most critical deployment sites. Early support allows us to secure bulk materials, train volunteer teams, and implement quality assurance checks to ensure each shelter is durable and weatherproof. By supporting the project before the official GoFundMe launch, sponsors help scale production efficiently and track impact transparently.</p>
+    <p>Each shelter is 60x50x50 cm, suitable for an adult cat or small dog, with a removable fleece pad. We aim to produce 1,000 shelters in the first phase for high-need urban and suburban areas. Support allows us to purchase materials in bulk, train volunteers, and implement quality checks to ensure durability and weatherproofing.</p>
   </section>
 
   <!-- Dual Mission -->
   <section id="dual">
     <h2>♻️ A Dual Mission: Saving Animals and the Planet</h2>
-    <p>Every donation creates a dual impact: giving discarded plastic a new purpose and providing life-saving shelters for animals. Each unit removes 1–2 kg of plastic from the waste stream and transforms it into a safe, insulated home.</p>
+    <p>Donations have a double impact: they repurpose discarded plastic and create life-saving shelters for stray animals. Each unit removes 1–2 kg of plastic from the waste stream while providing safe, insulated housing.</p>
     <img src="IMG_9303.png" alt="Close-up of a single Warm Haven shelter made from recycled plastic">
-    <p>Beyond environmental and animal welfare benefits, the project offers educational and community engagement opportunities. Volunteers, schools, and local organizations participate in shelter assembly and distribution workshops, learning sustainable practices and animal care while contributing to meaningful change. Each event can produce 50–100 shelters, enabling rapid expansion and measurable outcomes.</p>
+    <p>The project also offers educational opportunities. Volunteers, schools, and local organizations participate in assembly workshops, learning sustainable practices and animal welfare while producing shelters. Each event can create 50–100 shelters, rapidly scaling the project’s reach.</p>
   </section>
 
   <!-- Design -->
   <section id="design">
     <h2>🏠 What Makes the Warm Haven Shelter Unique</h2>
-    <p>Our shelters are carefully engineered to balance affordability, durability, and animal comfort. They are built to withstand the toughest weather while keeping animals safe, dry, and warm.</p>
+    <p>Our shelters are engineered for affordability, durability, and animal comfort, built to withstand harsh weather while keeping animals safe and warm.</p>
     <ul>
-      <li><strong>Recycled HDPE Shell:</strong> Lightweight, waterproof, and resistant to cracking or UV damage, sourced from recycled containers and industrial plastic.</li>
-      <li><strong>Double-Walled Insulation:</strong> Hollow air-trap walls lined with recycled foam and reflective film maintain internal temperatures up to 15°C warmer than outside.</li>
-      <li><strong>Soft Interior Fleece:</strong> Washable pads made from reclaimed textiles provide comfort and hygiene for the animals.</li>
-      <li><strong>Windproof Door Flap:</strong> Transparent vinyl flap blocks cold winds and rain while allowing sunlight in.</li>
-      <li><strong>Stackable Modular Design:</strong> Units snap together to create colony shelters for multiple animals in high-density areas.</li>
-      <li><strong>Weather-Tested Design:</strong> Rounded edges and reinforced joints resist wind lift and allow snow and rain to shed efficiently.</li>
+      <li><strong>Recycled HDPE Shell:</strong> Waterproof and resistant to cracking or UV damage, sourced from recycled containers and industrial plastic.</li>
+      <li><strong>Double-Walled Insulation:</strong> Hollow walls with recycled foam and reflective film maintain internal temperatures up to 15°C warmer.</li>
+      <li><strong>Soft Interior Fleece:</strong> Washable pads from reclaimed textiles provide comfort and hygiene.</li>
+      <li><strong>Windproof Door Flap:</strong> Transparent vinyl blocks wind and rain while allowing sunlight in.</li>
+      <li><strong>Stackable Modular Design:</strong> Units snap together to form colonies for multiple animals in high-density areas.</li>
+      <li><strong>Weather-Tested:</strong> Rounded edges and reinforced joints resist wind lift and shed snow and rain efficiently.</li>
     </ul>
-    <p>Each shelter is easy for volunteers to assemble without special tools, allowing rapid deployment. Quality checks ensure every unit meets rigorous safety and durability standards before reaching animals.</p>
+    <p>Designed for volunteer assembly without tools, each shelter passes rigorous quality checks to ensure long-lasting protection.</p>
   </section>
 
   <!-- Donation -->
   <section id="donate" class="donation-box">
     <h3>💚 How Your Donation Translates Directly Into Shelter</h3>
-    <p>Every dollar goes directly toward materials, insulation, assembly, and delivery. Our production process ensures maximum impact per donation:</p>
-    <ul>
-      <li>1,000 shelters distributed in the first phase.</li>
-      <li>~1,500 kg of plastic repurposed from waste streams.</li>
-      <li>~1,000 animals given insulated shelter during winter.</li>
-    </ul>
+    <p>Every dollar goes toward materials, insulation, assembly, and delivery, ensuring your contribution creates real, visible impact.</p>
+    <div class="impact-stats">
+      <div class="stat-box">1,000 shelters distributed</div>
+      <div class="stat-box">~1,500 kg of plastic recycled</div>
+      <div class="stat-box">~1,000 animals sheltered</div>
+    </div>
     <div class="donation-amounts">
       <div class="amount">$15 → One Shelter</div>
       <div class="amount">$30 → Two Shelters</div>
@@ -194,30 +250,32 @@
       <div class="amount">$150 → Ten Shelters</div>
     </div>
     <img src="IMG_9305.jpeg" alt="Kitten resting safely inside the shelter during a blizzard">
-    <p>Donors receive updates with photos and metrics detailing shelters built, communities served, and animals helped, ensuring transparency and tangible results for every contribution.</p>
+    <button class="donate-btn">Donate Now</button>
   </section>
 
   <!-- Future -->
   <section id="future">
     <h2>🌍 A Future Built from Recycled Hope</h2>
-    <p>The Warm Haven Project aims to expand nationally with regional manufacturing hubs, reducing transportation impact and speeding up deployment. Future plans include community recycling programs, volunteer training workshops, and educational initiatives to teach sustainable practices and animal welfare awareness.</p>
-    <p>Each shelter built demonstrates how compassion and sustainability intersect, creating measurable environmental and social benefits. With continued support, this model can be scaled globally, providing safe refuge to stray animals and promoting responsible plastic use.</p>
+    <p>We aim to expand nationally with regional hubs to reduce transport impact and accelerate deployment. Future initiatives include community recycling programs, volunteer training, and educational outreach.</p>
+    <p>Each shelter demonstrates how compassion and sustainability intersect, providing measurable environmental and social benefits. With continued support, this model can scale globally.</p>
   </section>
 
   <!-- Join -->
   <section id="join">
     <h2>❤️ Join the Movement — Turn Waste Into Warmth</h2>
-    <p>It’s simple: <strong>💲 $15 = One Shelter = One Animal’s Life Saved</strong></p>
-    <p>Supporters can donate, volunteer, or become sponsors. Sponsors receive visibility through logo placement on shelters and recognition in the documentary and social media. Volunteers help assemble and distribute shelters in local communities, creating direct, hands-on impact. Together, supporters help scale the project and inspire further action.</p>
+    <p>Supporters can donate, volunteer, or become sponsors. Sponsors gain visibility through logo placement on shelters and recognition in the documentary. Volunteers help assemble and distribute shelters, making direct, hands-on impact. Together, we scale the project and inspire further action.</p>
   </section>
 
   <!-- Contact -->
   <footer id="contact">
     <h3>Partner With Us</h3>
-    <p>We welcome sponsors and collaborators to amplify our mission and share in the impact. By working together, we can reach more communities, scale production, and showcase the project in our upcoming documentary. Every sponsorship contributes to a measurable outcome: more shelters, more animals saved, and greater environmental impact.</p>
+    <p>We welcome sponsors and collaborators to amplify our mission and reach more communities. Every sponsorship contributes to tangible outcomes: more shelters, more animals saved, and measurable environmental impact.</p>
     <p><strong>Contact:</strong> <a href="mailto:warmhaven@outlook.com">warmhaven@outlook.com</a></p>
     <p>© 2025 Warm Haven Project — Turning Waste Into Warmth</p>
   </footer>
+</body>
+</html>
+
 </body>
 </html>
 
