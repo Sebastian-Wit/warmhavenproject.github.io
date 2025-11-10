@@ -18,7 +18,32 @@
       background: linear-gradient(135deg, #2b6777, #52ab98);
       color: white;
       text-align: center;
-      padding: 4rem 1rem 3rem;
+      padding: 5rem 1rem 3rem;
+      position: relative;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(43, 103, 119, 0.9);
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 0.8rem 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: #bfe8e0;
     }
 
     header h1 {
@@ -95,24 +120,40 @@
   </style>
 </head>
 <body>
+  <!-- Navigation -->
+  <nav>
+    <a href="#documentary">Documentary</a>
+    <a href="#mission">Mission</a>
+    <a href="#dual">Dual Impact</a>
+    <a href="#design">Design</a>
+    <a href="#donate">Donate</a>
+    <a href="#future">Future</a>
+    <a href="#join">Join</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Header -->
   <header>
     <h1>🐾 Warm Haven Project</h1>
     <p>Turning Waste Into Warmth — Transforming recycled plastic into life-saving shelters for animals in need.</p>
   </header>
 
-  <section>
+  <!-- Documentary -->
+  <section id="documentary">
     <h2>🎬 Coming Soon: A Documentary on the Warm Haven Project</h2>
     <p>Your support isn’t just building shelters — it’s helping tell a story. This project will be the subject of an upcoming documentary that shows how recycled plastic can save lives and transform communities. By donating, you become part of this journey, helping us capture the impact of compassion, innovation, and sustainability in action.</p>
   </section>
 
-  <section>
+  <!-- Mission -->
+  <section id="mission">
     <h2>🐾 The Mission</h2>
     <p>Every winter, countless stray cats and dogs struggle to survive freezing nights with nowhere to hide. At the same time, tons of plastic waste pile up in landfills and oceans. The Warm Haven Project solves both problems at once — by transforming recycled plastic waste into durable, insulated shelters that give animals a safe, warm place to rest.</p>
     <p><strong>💲 Every $15 donated builds one real shelter — and saves one life.</strong></p>
     <img src="IMG_9304.jpg" alt="Row of Warm Haven shelters providing refuge to stray animals">
   </section>
 
-  <section>
+  <!-- Dual Mission -->
+  <section id="dual">
     <h2>♻️ A Dual Mission: Saving Animals and the Planet</h2>
     <p>When you donate, you’re doing two incredible things at once:</p>
     <ul>
@@ -123,7 +164,8 @@
     <img src="IMG_9303.jpg" alt="Close-up of a single Warm Haven shelter made from recycled plastic">
   </section>
 
-  <section>
+  <!-- Design -->
+  <section id="design">
     <h2>🏠 What Makes the Warm Haven Shelter Unique</h2>
     <ul>
       <li><strong>Recycled Plastic Shell:</strong> Made from reclaimed HDPE — lightweight, waterproof, and resilient against snow, rain, and heat.</li>
@@ -135,7 +177,8 @@
     </ul>
   </section>
 
-  <section class="donation-box">
+  <!-- Donation -->
+  <section id="donate" class="donation-box">
     <h3>💚 How Your Donation Translates Directly Into Shelter</h3>
     <p>We want every donor to know exactly what their impact is.</p>
     <div class="donation-amounts">
@@ -148,19 +191,22 @@
     <img src="IMG_9305.jpg" alt="Kitten resting safely inside the shelter during a blizzard">
   </section>
 
-  <section>
+  <!-- Future -->
+  <section id="future">
     <h2>🌍 A Future Built from Recycled Hope</h2>
     <p>We believe compassion and sustainability can work hand-in-hand. Every Warm Haven Shelter built is a step toward a world where nothing is wasted — not plastic, and not life. By donating, you’re creating more than comfort — you’re creating survival, dignity, and a cleaner planet.</p>
   </section>
 
-  <section>
+  <!-- Join -->
+  <section id="join">
     <h2>❤️ Join the Movement — Turn Waste Into Warmth</h2>
     <p>It’s simple:</p>
     <p><strong>💲 $15 = One Shelter = One Animal’s Life Saved</strong></p>
     <p>Together, we can build a cleaner planet and a kinder world — one recycled piece at a time. Donate today. Build a shelter. Save a life.</p>
   </section>
 
-  <footer>
+  <!-- Contact -->
+  <footer id="contact">
     <h3>Partner With Us</h3>
     <p>We welcome sponsors and collaborators to amplify our mission and share in the impact.</p>
     <p><strong>Contact:</strong> <a href="mailto:warmhaven@outlook.com">warmhaven@outlook.com</a></p>
@@ -168,3 +214,4 @@
   </footer>
 </body>
 </html>
+
