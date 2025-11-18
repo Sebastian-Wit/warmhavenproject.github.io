@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warm Haven Project: Sustainable Shelter for Animals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ADDED: Smooth scroll behavior for all anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+
+        /* Custom Christmas Gradient: Deep Red to Forest Green */
+        .christmas-gradient {
+            background-image: linear-gradient(to right, #991b1b, #059669); /* red-800 to green-700 */
+        }
+
+        /* --- Snow effect styling for the Holiday Section --- */
+        .snow-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        .snow-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        /* Layer 1: Subtle, slower snow */
+        .snow-layer-1 {
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.6) 1.5px, transparent 0);
+            background-size: 150px 150px;
+            animation: snow-fall 25s linear infinite;
+        }
+
+        /* Layer 2: Larger, faster snow */
+        .snow-layer-2 {
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.4) 1px, transparent 0);
+            background-size: 200px 200px;
+            animation: snow-fall 18s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes snow-fall {
+            0% {
+                background-position: 0 0;
+            }
+            /* Moves the snow background image down and across */
+            100% {
+                background-position: 500px 500px;
+            }
+        }
+
+        /* --- CSS for Scroll Animation (Fade In Up) --- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                /* Starts 40px below final position */
+                transform: translate3d(0, 40px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            /* Ensures smooth transition for elements that start off-screen */
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        /* This class is added by JavaScript when the element enters the viewport */
+        .animate-on-scroll.is-visible {
+            animation: fadeInUp 0.7s ease-out forwards;
+        }
+        
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- MODIFIED HEADER FOR AESTHETICS -->
+    <header class="bg-white sticky top-0 z-50 shadow-xl border-b-4 border-teal-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-black text-teal-700">Warm Haven Project</h1>
+            
+            <!-- Links are now bolder, slightly larger, and have a more distinct hover -->
+            <nav class="hidden md:flex space-x-2 text-base font-bold">
+                <a href="#impact" class="text-gray-800 hover:text-yellow-600 transition duration-300 px-3 py-1 rounded-full">Our Impact</a>
+                <a href="#species" class="text-gray-800 hover:text-yellow-600 transition duration-300 px-3 py-1 rounded-full">Species Catalog</a>
+                <a href="#solar-features" class="text-gray-800 hover:text-yellow-600 transition duration-300 px-3 py-1 rounded-full">Solar Power</a>
+                <a href="#customization" class="text-gray-800 hover:text-yellow-600 transition duration-300 px-3 py-1 rounded-full">Customization</a>
+                <a href="#documentary" class="text-gray-800 hover:text-yellow-600 transition duration-300 px-3 py-1 rounded-full">Documentary</a>
+                <a href="#endorsements" class="text-gray-800 hover:text-yellow-600 transition duration-300 px-3 py-1 rounded-full">Endorsements</a>
+            </nav>
+            
+            <!-- REMOVED: CTA button 'Start at $15/Mo' has been removed as requested. -->
+            
+            <button id="mobile-menu-open" class="md:hidden p-2 rounded-md text-gray-800 hover:bg-gray-100 transition duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[100] transform translate-x-full transition-transform duration-300 md:hidden p-8">
+        <div class="flex justify-between items-center mb-10 border-b pb-4">
+            <h2 class="text-3xl font-extrabold text-teal-600">Menu</h2>
+            <button id="mobile-menu-close" class="p-2 rounded-md text-gray-800 hover:bg-gray-100 transition duration-300">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+
+        <nav class="flex flex-col space-y-6 text-xl font-bold">
+            <a href="#impact" class="text-gray-800 hover:text-teal-600 transition duration-300 border-b pb-2" data-close-menu>Our Impact</a>
+            <a href="#species" class="text-gray-800 hover:text-teal-600 transition duration-300 border-b pb-2" data-close-menu>Species Catalog</a>
+            <a href="#solar-features" class="text-gray-800 hover:text-teal-600 transition duration-300 border-b pb-2" data-close-menu>Solar Power</a>
+            <a href="#customization" class="text-gray-800 hover:text-teal-600 transition duration-300 border-b pb-2" data-close-menu>Customization</a>
+            <a href="#documentary" class="text-gray-800 hover:text-teal-600 transition duration-300 border-b pb-2" data-close-menu>Documentary</a>
+            <a href="#endorsements" class="text-gray-800 hover:text-teal-600 transition duration-300 border-b pb-2" data-close-menu>Endorsements</a>
+
+            <a href="#cta" class="mt-8 bg-teal-600 text-white px-6 py-3 rounded-full text-center hover:bg-teal-700 transition duration-300 shadow-lg font-extrabold" data-close-menu>
+                Start at $15/Mo
+            </a>
+        </nav>
+    </div>
+
+    <section class="relative h-[60vh] md:h-[80vh] flex items-center justify-center text-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center transition duration-500" style="background-image: url('./photos/hero.jpg');">
+            <div class="absolute inset-0 bg-black opacity-60"></div>
+        </div>
+
+        <div class="relative z-10 p-6 max-w-4xl">
+            <p class="text-xl font-semibold text-teal-300 mb-4 uppercase tracking-wider animate-on-scroll">Sustainable Shelter. Real Impact.</p>
+            <h2 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 animate-on-scroll">
+                Transform Trash into Treasured Homes
+            </h2>
+            <p class="text-xl md:text-2xl text-white mb-10 font-medium animate-on-scroll">
+                Give warmth and security to animals in need for just $15 a month. Fully customizable and crafted from 100% upcycled materials.
+            </p>
+            <a id="cta" href="#design-form" class="bg-yellow-400 text-gray-900 px-10 py-4 text-xl font-bold rounded-full hover:bg-yellow-300 transition duration-300 shadow-xl transform hover:scale-105 animate-on-scroll">
+                Design Your Warm Haven Now!
+            </a>
+        </div>
+    </section>
+
+    <section class="py-16 text-white border-y-4 border-yellow-400 christmas-gradient snow-bg relative" id="christmas-special">
+        <div class="snow-overlay snow-layer-1 z-10"></div>
+        <div class="snow-overlay snow-layer-2 z-10"></div>
+
+        <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-4xl font-extrabold mb-4 text-yellow-300 animate-on-scroll">✨ Limited Time: The Warm Haven Holiday Special! ✨</h3>
+            <p class="text-xl mb-10 max-w-3xl mx-auto animate-on-scroll">
+                Ensure no creature spends the winter in the cold! Purchase a shelter this month and unlock our exclusive **Holiday Customization Pack**—featuring snowy accents, festive lighting, and a cozy red-and-green palette. Give the ultimate gift of warmth!
+            </p>
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white rounded-xl overflow-hidden shadow-2xl transform hover:scale-105 transition duration-300 animate-on-scroll">
+                    <img src="./photos/Christmas_Theme.png" alt="A red shelter with Christmas decorations in the snow." class="w-full h-64 object-cover">
+                    <div class="p-4 text-gray-800">
+                        <h4 class="font-bold text-lg">Festive Cottage Design</h4>
+                        <p class="text-sm">Includes holiday wreath and lights.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-2xl transform hover:scale-105 transition duration-300 animate-on-scroll" style="animation-delay: 0.2s;">
+                    <img src="./photos/Christmas_Theme_2.png" alt="A green shelter with a red bow in the snow." class="w-full h-64 object-cover">
+                    <div class="p-4 text-gray-800">
+                        <h4 class="font-bold text-lg">Winter Wonderland Nook</h4>
+                        <p class="text-sm">Features snow-dusted roof and large bow.</p>
+                    </div>
+                </div>
+            </div>
+            <a href="#design-form" class="mt-10 inline-block bg-yellow-400 text-gray-900 px-8 py-3 text-lg font-bold rounded-full hover:bg-yellow-300 transition duration-300 shadow-xl animate-on-scroll" style="animation-delay: 0.4s;">
+                Unlock the Holiday Designs
+            </a>
+        </div>
+    </section>
+
+    <section class="py-20" id="impact">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl font-extrabold text-gray-900 animate-on-scroll">The $15/Month Pledge: Affordable Compassion</h3>
+                <p class="text-xl text-gray-600 mt-3 animate-on-scroll">Maximum, verifiable impact for less than your daily coffee.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-teal-500 animate-on-scroll">
+                    <h4 class="text-2xl font-bold text-gray-900 mb-4">Sustainably Crafted</h4>
+                    <p class="text-gray-600 mb-4">Your contribution covers the extensive labor and energy required for collecting, cleaning, and sanitizing the recycled plastics and materials, transforming waste into durable, non-toxic panels.</p>
+                    <img src="./photos/recycling.png" alt="Workers processing recycled materials into shelter panels" class="w-full h-40 object-cover rounded-lg">
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-yellow-500 animate-on-scroll" style="animation-delay: 0.15s;">
+                    <h4 class="text-2xl font-bold text-gray-900 mb-4">Continuous Care</h4>
+                    <p class="text-gray-600 mb-4">The monthly fee funds shelter installation, periodic check-ups, necessary repairs, and ensures long-term usability in all weather conditions, from heatwaves to heavy snow.</p>
+                    <img src="./photos/IMG_9305.jpeg" alt="A shelter with a cat inside covered in snow" class="w-full h-40 object-cover rounded-lg">
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-red-500 animate-on-scroll" style="animation-delay: 0.3s;">
+                    <h4 class="text-2xl font-bold text-gray-900 mb-4">High-Tech Transparency</h4>
+                    <p class="text-gray-600 mb-4">A portion maintains the secure, high-definition streaming infrastructure for the optional HD Video Feed. You get to see who uses your shelter, proving your $15 is hard at work.</p>
+                    <img src="./photos/IMG_9304.jpeg" alt="A row of multiple identical shelters" class="w-full h-40 object-cover rounded-lg">
+                </div>
+            </div>
+            <p class="text-center text-lg text-gray-500 mt-8 italic animate-on-scroll" style="animation-delay: 0.45s;">
+                The cost is not for a one-time product; it's a subscription to continuous animal welfare, environmental stewardship, and a personalized connection to your impact.
+            </p>
+        </div>
+    </section>
+
+    <!-- NEW SECTION ORDER: SPECIES CATALOG NOW APPEARS SECOND -->
+    <section class="py-20 bg-gray-100" id="species">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl font-extrabold text-gray-900 animate-on-scroll">A Home for Every Habitat: The Species Catalog</h3>
+                <p class="text-xl text-gray-600 mt-3 animate-on-scroll">Specialized, architecturally sound sanctuaries for both common and rare species.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden animate-on-scroll">
+                    <img src="./photos/dog_shelter_advanced.png" alt="An advanced wooden-style dog shelter" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900">The Community Companion</h4>
+                        <p class="text-sm text-teal-600 mb-2">Feral Cats, Community Dogs, Opossums</p>
+                        <p class="text-gray-600">Durable, spacious, and built with reinforced, predator-resistant materials to offer maximum security and comfort for neighborhood animals.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden animate-on-scroll" style="animation-delay: 0.15s;">
+                    <img src="./photos/BirdHouse_Plastic_Decorated.png" alt="A decorated plastic birdhouse with a bird inside" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900">The Feathered Haven</h4>
+                        <p class="text-sm text-teal-600 mb-2">Local Songbirds, Owls, Wrens</p>
+                        <p class="text-gray-600">Elevated nesting boxes with insulated roofs, specialized entry points, and perching branches tailored for avian species' biological needs.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden animate-on-scroll" style="animation-delay: 0.3s;">
+                    <img src="./photos/Red_Panda_Shelter.png" alt="An ornate shelter with a red panda sleeping inside" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900">The Exotic Refuge</h4>
+                        <p class="text-sm text-teal-600 mb-2">Red Pandas, Desert Foxes (Special Order)</p>
+                        <p class="text-gray-600">Ultra-insulated, climate-specific sanctuaries dedicated to vulnerable and rare species, addressing unique conservation and temperature regulation needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION ORDER: SOLAR POWER NOW APPEARS THIRD AND INCLUDES IMAGE PLACEHOLDER -->
+    <section class="py-20 bg-teal-50" id="solar-features">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl font-extrabold text-gray-900 animate-on-scroll">☀️ Eco-Power: Solar Features for Ultimate Comfort</h3>
+                <p class="text-xl text-gray-600 mt-3 animate-on-scroll">Zero-emission power for essential warmth, safety, and a touch of festive cheer.</p>
+            </div>
+
+            <!-- Image Placeholder for Solar Features -->
+            <div class="mb-12 rounded-xl shadow-2xl overflow-hidden animate-on-scroll" style="animation-delay: 0.1s;">
+                <div class="h-64 bg-yellow-100 flex items-center justify-center border-4 border-yellow-500 border-dashed">
+                    <div class="text-center p-4">
+                        <svg class="w-16 h-16 text-yellow-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        <p class="text-2xl font-bold text-yellow-800">Integrated Solar Panel Mockup</p>
+                        <p class="text-lg text-yellow-700">Visualizing the seamless solar integration into the roof structure.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-yellow-500 animate-on-scroll" style="animation-delay: 0.25s;">
+                    <svg class="w-12 h-12 text-yellow-600 mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 0113.5 18H12a2 2 0 01-2-2v-4a2 2 0 012-2h1.5a2 2 0 012 2v4a2 2 0 01-2 2h-1.5m-3.414 4.586a8 8 0 1111.314 0l-1.414-1.414a6 6 0 10-8.484 0l1.414 1.414z"></path></svg>
+                    <h4 class="text-2xl font-bold text-gray-900 mb-3 text-center">Passive Heating Mat</h4>
+                    <p class="text-gray-600 text-center">The integrated solar panel charges a small battery that powers a low-wattage heating pad, maintaining a safe, comfortable temperature during cold nights and winter storms.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-teal-500 animate-on-scroll" style="animation-delay: 0.4s;">
+                    <svg class="w-12 h-12 text-teal-600 mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                    <h4 class="text-2xl font-bold text-gray-900 mb-3 text-center">Motion-Activated Safety Light</h4>
+                    <p class="text-gray-600 text-center">A discrete, solar-powered LED light gently illuminates the entrance, providing animals with a sense of security and deterring potential nocturnal predators.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-red-500 animate-on-scroll" style="animation-delay: 0.55s;">
+                    <svg class="w-12 h-12 text-red-600 mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10m-4-2h8m-4 2h.01"></path></svg>
+                    <h4 class="text-2xl font-bold text-gray-900 mb-3 text-center">Festive Power Hub</h4>
+                    <p class="text-gray-600 text-center">Small dedicated outlets for seasonal flair! Easily power low-voltage light decorations like the optional Christmas garland or custom string lights without needing external power.</p>
+                </div>
+            </div>
+            <div class="text-center mt-12 animate-on-scroll" style="animation-delay: 0.7s;">
+                <p class="text-lg text-gray-700 italic">
+                    All solar systems are discreetly integrated into the recycled plastic roof material, ensuring a seamless, durable, and weather-proof design.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20" id="customization">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl font-extrabold text-gray-900 animate-on-scroll">Design Your Legacy: Unmatched Customization</h3>
+                <p class="text-xl text-gray-600 mt-3 animate-on-scroll">Express your commitment with shelters that are as unique as your compassion.</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="col-span-2 md:col-span-1 p-6 bg-white rounded-xl shadow-lg flex flex-col items-center justify-center text-center animate-on-scroll">
+                    <svg class="w-12 h-12 text-teal-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343h.01M17 7.343h.01"></path></svg>
+                    <p class="font-semibold">Architectural Styles</p>
+                    <p class="text-sm text-gray-500">Cottage, Modern, Rustic, Eco-Pod.</p>
+                </div>
+                <div class="col-span-2 md:col-span-1 p-6 bg-white rounded-xl shadow-lg flex flex-col items-center justify-center text-center animate-on-scroll" style="animation-delay: 0.1s;">
+                    <svg class="w-12 h-12 text-teal-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"></path></svg>
+                    <p class="font-semibold">Color & Pattern</p>
+                    <p class="text-sm text-gray-500">Vast selection of palettes and decals.</p>
+                </div>
+                <div class="col-span-2 md:col-span-1 p-6 bg-white rounded-xl shadow-lg flex flex-col items-center justify-center text-center animate-on-scroll" style="animation-delay: 0.2s;">
+                    <svg class="w-12 h-12 text-teal-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <p class="font-semibold">Optional Live Feed</p>
+                    <p class="text-sm text-gray-500">Real-time video connection to your impact.</p>
+                </div>
+                   <div class="col-span-2 md:col-span-1 p-6 bg-white rounded-xl shadow-lg flex flex-col items-center justify-center text-center animate-on-scroll" style="animation-delay: 0.3s;">
+                    <svg class="w-12 h-12 text-teal-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 100 4h2a2 2 0 100-4h-2zm-6 8a2 2 0 11-4 0 2 2 0 014 0zm15 0a2 2 0 11-4 0 2 2 0 014 0zM12 21a2 2 0 100-4 2 2 0 000 4z"></path></svg>
+                    <p class="font-semibold">Accessory Packs</p>
+                    <p class="text-sm text-gray-500">Planter boxes, welcome signs, solar lights.</p>
+                </div>
+            </div>
+
+            <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="rounded-xl overflow-hidden shadow-xl animate-on-scroll" style="animation-delay: 0.4s;">
+                    <img src="./photos/about-banner-3.png" alt="A yellow floral customized shelter" class="w-full h-72 object-cover">
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-xl animate-on-scroll" style="animation-delay: 0.5s;">
+                    <img src="./photos/about-banner-1.png" alt="A grey shelter with colorful star and heart stickers" class="w-full h-72 object-cover">
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-xl animate-on-scroll" style="animation-delay: 0.6s;">
+                    <img src="./photos/about-banner-4.png" alt="A cat in a modern geometric pattern shelter" class="w-full h-72 object-cover">
+                </div>
+                <div class="rounded-xl overflow-hidden shadow-xl animate-on-scroll" style="animation-delay: 0.7s;">
+                    <img src="./photos/about-banner-2.png" alt="A light blue shelter with cloud and moon decals" class="w-full h-72 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-teal-600 text-white" id="documentary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-4xl font-extrabold mb-4 animate-on-scroll">Be Part of the Story: The Warm Haven Documentary</h3>
+            <p class="text-xl mb-8 max-w-4xl mx-auto font-light animate-on-scroll">
+                We are thrilled to announce a documentary is currently in production, capturing the incredible journey of the Warm Haven Project—from the recycling process to the animals finding shelter.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8 text-left">
+                <div class="bg-teal-700 p-6 rounded-xl shadow-lg animate-on-scroll" style="animation-delay: 0.15s;">
+                    <h4 class="text-2xl font-bold mb-3">Donor Recognition</h4>
+                    <p>All patrons who donate at the $15/month level or higher will have the opportunity to have their names (or a name of their choosing) featured in the credits of the final documentary film.</p>
+                </div>
+                <div class="bg-teal-700 p-6 rounded-xl shadow-lg animate-on-scroll" style="animation-delay: 0.3s;">
+                    <h4 class="text-2xl font-bold mb-3">Share Your Voice</h4>
+                    <p>We will be offering potential interview spots to selected donors who wish to share why they chose to support the Warm Haven Project. This is your chance to be on screen and inspire others!</p>
+                </div>
+            </div>
+            <a href="#design-form" class="mt-10 inline-block bg-white text-teal-600 px-8 py-3 text-lg font-bold rounded-full hover:bg-gray-200 transition duration-300 shadow-xl animate-on-scroll" style="animation-delay: 0.45s;">
+                Fund a Shelter, Get Featured
+            </a>
+        </div>
+    </section>
+
+    <section class="py-20" id="endorsements">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-4xl font-extrabold text-center text-gray-900 mb-12 animate-on-scroll">Trusted Endorsements & Patron Stories</h3>
+            <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                <blockquote class="p-6 bg-white rounded-xl shadow-lg border-l-4 border-yellow-500 animate-on-scroll" style="animation-delay: 0.15s;">
+                    <p class="text-xl italic text-gray-700">"This is the only place that let me design a cute cottage-style shelter specifically for a Red Panda. It's truly personalized conservation."</p>
+                    <footer class="mt-4 font-bold text-lg text-yellow-600">— Veronica W., Dedicated Patron</footer>
+                </blockquote>
+                <blockquote class="p-6 bg-white rounded-xl shadow-lg border-l-4 border-yellow-500 animate-on-scroll" style="animation-delay: 0.3s;">
+                    <p class="text-xl italic text-gray-700">"[This is] a fantastic concept with strong social and environmental potential."</p>
+                    <footer class="mt-4 font-bold text-lg text-yellow-600">— Planet Ark Environmental Foundation</footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODIFIED: Final Call-to-Action Section -->
+    <section class="py-20 bg-teal-700 text-white" id="design-form">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-4xl font-extrabold mb-4 text-yellow-400 animate-on-scroll">Ready to Build a Better Tomorrow?</h3>
+            <p class="text-xl mb-12 font-light animate-on-scroll">
+                Click below to launch our interactive Custom Design Studio where you can select your animal, style, and add-ons before committing to a monthly sponsorship. Every donation is moderated through GoFundMe, ensuring that everyone gets the product they pay for.
+            </p>
+            <!-- New CTA Button replacing the form inputs -->
+            <a href="./custom_page_mockup.html" class="inline-block w-full max-w-lg mt-6 bg-yellow-400 text-gray-900 px-8 py-4 text-2xl font-bold rounded-full hover:bg-yellow-300 transition duration-300 shadow-2xl transform hover:scale-105 animate-on-scroll" style="animation-delay: 0.2s;">
+                Launch the Custom Design Studio
+            </a>
+            <p class="text-lg mt-6 font-semibold text-teal-200 animate-on-scroll" style="animation-delay: 0.3s;">
+                Monthly sponsorship starts at just $15.
+            </p>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p>&copy; 2025 Warm Haven Project. All Rights Reserved. | Dedicated to Sustainable Animal Welfare.</p>
+            <div class="mt-4 space-x-4">
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Mobile Menu Logic ---
+        const mobileMenu = document.getElementById('mobile-menu');
+        const openButton = document.getElementById('mobile-menu-open');
+        const closeButton = document.getElementById('mobile-menu-close');
+        // Select all 'a' tags with the data-close-menu attribute inside the mobile menu
+        const menuLinks = mobileMenu.querySelectorAll('a[data-close-menu]');
+
+        function toggleMobileMenu() {
+            // Toggles the Tailwind class that moves the menu drawer in/out
+            mobileMenu.classList.toggle('translate-x-full');
+            // Toggles body scroll lock to prevent scrolling background content
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        openButton.addEventListener('click', toggleMobileMenu);
+        closeButton.addEventListener('click', toggleMobileMenu);
+
+        // Close menu when a link is clicked
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Add a slight delay to allow the smooth scroll to start before closing the menu
+                setTimeout(toggleMobileMenu, 300);
+            });
+        });
+
+
+        // --- Intersection Observer for Scroll Animations (existing logic) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Apply the visible class which triggers the CSS animation
+                        entry.target.classList.add('is-visible');
+                        // Stop observing once it's visible
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                // Root margin ensures the animation starts a little before the element is fully in view
+                rootMargin: '0px 0px -100px 0px',
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            });
+
+            // Select all elements marked for animation
+            document.querySelectorAll('.animate-on-scroll').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
