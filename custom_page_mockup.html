@@ -223,19 +223,19 @@
 }
 
 .selection-card[data-value="silver_aluminum"] {
-    background: linear-gradient(135deg, #c0c0c0, #e0e0e0);
+    background: linear-gradient(135deg, #a3a3a3, #e0e0e0);
     border: 2px solid #aaa;
     box-shadow: 0 4px 15px rgba(192,192,192,0.5);
 }
 
 .selection-card[data-value="stone_texture"] {
-    background: linear-gradient(135deg, #9e9e9e, #bdbdbd);
+    background: linear-gradient(135deg, #6e6e6e, #bdbdbd);
     border: 2px solid #8e8e8e;
     box-shadow: 0 4px 15px rgba(158,158,158,0.5);
 }
 
 .selection-card[data-value="picket_fence"] {
-    background: #fff;
+    background: #f5e8be;
     color: #222;
     border: 2px solid #eee;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -351,7 +351,7 @@
                                     bg-gradient-to-tr from-amber-800 to-yellow-600 hover:scale-105 hover:shadow-lg" 
                             data-value="natural_cedar" data-price="5"
                             data-description="Warm natural cedar wood tone for organic character.">
-                            Natural Cedar Stain
+                            Natural Cedar Wood
                         </div>
 
                         <div class="selection-card p-4 rounded-lg text-gray-900 text-center 
@@ -449,8 +449,8 @@
                         <div class="selection-card p-4 rounded-lg text-gray-900 text-center 
                                     bg-gradient-to-r from-white to-gray-100 hover:scale-105 hover:shadow-lg" 
                             data-value="picket_fence" data-price="2"
-                            data-description="Classic fence white for crisp outdoor charm.">
-                            Picket Fence White
+                            data-description="Classic fence white-brown mix for crisp outdoor charm.">
+                            Picket Fence
                         </div>
 
                     </div>
@@ -782,8 +782,8 @@
                         <div class="selection-card p-4 rounded-lg text-gray-900 text-center
                                     bg-gradient-to-tr from-green-200 to-green-300 hover:scale-105 hover:shadow-lg"
                             data-value="hemp_fiber" data-price="5"
-                            data-description="Eco-friendly hemp fiber for natural snug cuddles.">
-                            Natural Hemp Fiber
+                            data-description="Eco-friendly fiber for natural snug cuddles.">
+                            Natural Fiber
                         </div>
 
                         <div class="selection-card p-4 rounded-lg text-white text-center
@@ -889,7 +889,7 @@
                 </div>
 
                 <!-- 8. Custom Lights (Single Select) -->
-                <div class="bg-white p-6 rounded-xl shadow-2xl border-t-8 border-yellow-500" data-category="custom_lights" data-select="single">
+                <div class="bg-white p-6 rounded-xl shadow-2xl border-t-8 border-yellow-500" data-category="custom_lights" data-select="multi">
                     <h2 class="text-3xl font-bold mb-6 text-teal-800">8. Custom Lights</h2>
                     <div class="grid md:grid-cols-3 gap-4">
 
@@ -1048,13 +1048,13 @@
                         </div>
                         <div class="selection-card p-4 rounded-lg text-gray-900 text-center bg-gradient-to-r from-gray-100 to-blue-100 hover:scale-105 hover:shadow-lg"
                             data-value="temp_controlled" data-price="4"
-                            data-description="Temperature-controlled water bowl for cozy sips in any weather.">
-                            Temperature-Controlled Water Bowl
+                            data-description="Timer-controlled water bowl for cozy sips in any weather.">
+                            Timer-Controlled Water Bowl
                         </div>
                         <div class="selection-card p-4 rounded-lg text-white text-center bg-gradient-to-r from-gray-400 to-gray-500 hover:scale-105 hover:shadow-lg"
                             data-value="microchip_feeder" data-price="5"
-                            data-description="Microchip-activated feeder, giving VIP access to your special pets.">
-                            Microchip-Activated Feeder
+                            data-description="Remote-activated feeder, letting you feed your pet whenever you'd like.">
+                            Remote-Activated Feeder
                         </div>
                         <div class="selection-card p-4 rounded-lg text-gray-900 text-center bg-gradient-to-r from-gray-200 to-green-100 hover:scale-105 hover:shadow-lg"
                             data-value="large_hopper" data-price="4"
@@ -1187,8 +1187,8 @@
                         </div>
                         <div class="selection-card p-4 rounded-lg text-gray-900 text-center bg-gradient-to-r from-gray-200 to-yellow-200 hover:scale-105 hover:shadow-lg"
                             data-value="laser_pointer" data-price="3"
-                            data-description="Laser pointer for zooming antics and fun play.">
-                            Laser Pointer (Auto-Run Cycle)
+                            data-description="Laser pointer for zooming antics and fun play. Controlled by you if live feed is selected, otherwise automatic.">
+                            Laser Pointer (Controlled By You)
                         </div>
                         <div class="selection-card p-4 rounded-lg text-gray-900 text-center bg-gradient-to-r from-gray-300 to-gray-200 hover:scale-105 hover:shadow-lg"
                             data-value="mirrored_panel" data-price="3"
@@ -1382,8 +1382,8 @@
                         <div class="selection-card p-4 rounded-xl text-white text-center
                                     bg-gradient-to-r from-indigo-400 to-purple-500 hover:scale-105 hover:shadow-xl shadow-indigo-300"
                             data-value="microchip_door" data-price="6"
-                            data-description="Smart entry only for your furry VIPs.">
-                            Microchip Entry Door
+                            data-description="Smart entry that you can control, letting in only your furry VIPs.">
+                            Remote-Controlled Entry Door
                         </div>
 
                         <div class="selection-card p-4 rounded-xl text-white text-center
@@ -1518,24 +1518,6 @@ document.addEventListener('DOMContentLoaded', () => {
         closeBtn.addEventListener('click', () => popup.classList.add('hidden'));
     }
 
-    // ---------- Enable / disable electronics based on solar ----------
-    function updateElectronicsAvailability() {
-    const solarSelected = solarCheckbox?.checked;
-
-    electronicsCards.forEach(card => {
-        if (solarSelected) {
-            // Enable card interaction
-            card.classList.remove('opacity-50', 'pointer-events-none');
-        } else {
-            // Disable interaction but keep selected state
-            card.classList.add('opacity-50', 'pointer-events-none');
-            // Do NOT remove 'selected' or data-selected
-        }
-    });
-
-    updatePrice(); // Always update sidebar
-}
-
     // ---------- Tooltip & hover effects ----------
     document.querySelectorAll('.selection-card').forEach(card => {
         card.classList.add('relative', 'group', 'transform', 'transition-all', 'duration-300', 'cursor-pointer');
@@ -1572,7 +1554,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 else card.removeAttribute('data-selected');
             }
 
-            //updateElectronicsAvailability();
+            updateElectronicsAvailability();
             updatePrice();
         });
     });
@@ -1676,60 +1658,100 @@ document.addEventListener('DOMContentLoaded', () => {
         placementInput.addEventListener('input', updatePrice);
     }
 
+    // ---------- Robust Confirm Button Logic ----------
+(function attachRobustConfirmHandler() {
+  const confirmButton = document.getElementById('confirm-button');
+  const confirmationPopup = document.getElementById('confirmation-popup');
+  const confirmationList = document.getElementById('confirmation-list');
+  const closeConfirmation = document.getElementById('close-confirmation');
+  const copyButton = document.getElementById('copy-button');
+
+  if (!confirmButton || !confirmationPopup || !confirmationList) return;
+
+  // Force button to always accept clicks
+  confirmButton.style.zIndex = 99999;
+  confirmButton.style.pointerEvents = 'auto';
+
+  confirmButton.addEventListener('click', function (ev) {
+    ev.stopPropagation();
+    ev.preventDefault();
+
+    confirmationList.innerHTML = '';
+
+    // Shelter Placement
+    if (placementInput && placementInput.value.trim() !== '') {
+      const div = document.createElement('div');
+      div.textContent = `Shelter Placement: ${placementInput.value.trim()}`;
+      confirmationList.appendChild(div);
+    }
+
+    // Selected options
+    document.querySelectorAll('.selection-card.selected').forEach(card => {
+      const categoryElement = card.closest('[data-category]');
+      const category = categoryElement?.dataset?.category || 'Option';
+
+      let labelText = '';
+      if (card.firstChild && card.firstChild.nodeType === Node.TEXT_NODE) {
+        labelText = card.firstChild.nodeValue.trim();
+      } else {
+        labelText = (card.textContent || '').trim();
+      }
+
+      const div = document.createElement('div');
+      div.textContent = `${getCategoryTitle(category)}: ${labelText}`;
+      confirmationList.appendChild(div);
+    });
+
+    // Show popup
+    confirmationPopup.classList.remove('hidden');
+  }, { capture: true });
+
+  // Close popup
+  if (closeConfirmation) {
+    closeConfirmation.addEventListener('click', () =>
+      confirmationPopup.classList.add('hidden')
+    );
+  }
+
+  // Copy button
+  if (copyButton) {
+    copyButton.addEventListener('click', () => {
+      let textToCopy = '';
+      confirmationList.querySelectorAll('div').forEach(div => {
+        textToCopy += div.textContent + '\n';
+      });
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        const old = copyButton.textContent;
+        copyButton.textContent = 'Copied!';
+        setTimeout(() => copyButton.textContent = old, 1400);
+      });
+    });
+  }
+})();
+
+
+        // ---------- Enable / disable electronics based on solar ----------
+    function updateElectronicsAvailability() {
+    const solarSelected = solarCheckbox?.checked;
+
+    electronicsCards.forEach(card => {
+        if (solarSelected) {
+            // Enable card interaction
+            card.classList.remove('opacity-50', 'pointer-events-none');
+        } else {
+            // Disable interaction but keep selected state
+            card.classList.add('opacity-50', 'pointer-events-none');
+            // Do NOT remove 'selected' or data-selected
+        }
+    });
+
+    updatePrice(); // Always update sidebar
+    }
+
     // ---------- Solar checkbox listener ----------
     if (solarCheckbox) {
         solarCheckbox.addEventListener('change', updateElectronicsAvailability);
     }
-
-    // ---------- Confirm Button Popup ----------
-    const confirmButton = document.getElementById('confirm-button');
-    const confirmationPopup = document.getElementById('confirmation-popup');
-    const confirmationList = document.getElementById('confirmation-list');
-    const closeConfirmation = document.getElementById('close-confirmation');
-    const copyButton = document.getElementById('copy-button');
-
-    if (confirmButton && confirmationPopup) {
-        confirmButton.addEventListener('click', () => {
-            confirmationList.innerHTML = ''; // clear previous
-
-            // Shelter Placement
-            if (placementInput && placementInput.value.trim() !== '') {
-                const div = document.createElement('div');
-                div.textContent = `Shelter Placement: ${placementInput.value.trim()}`;
-                confirmationList.appendChild(div);
-            }
-
-            // Other selected options
-            document.querySelectorAll('.selection-card.selected').forEach(card => {
-                const categoryElement = card.closest('[data-category]');
-                const category = categoryElement.dataset.category;
-                // Get only the card's main text, ignoring tooltips
-                const labelText = card.firstChild.nodeValue.trim();
-                const div = document.createElement('div');
-                div.textContent = `${getCategoryTitle(category)}: ${labelText}`;
-                confirmationList.appendChild(div);
-            });
-
-            // Show the popup
-            confirmationPopup.classList.remove('hidden');
-        });
-
-        closeConfirmation.addEventListener('click', () => {
-            confirmationPopup.classList.add('hidden');
-        });
-
-        copyButton.addEventListener('click', () => {
-            // Copy list text to clipboard
-            let textToCopy = '';
-            confirmationList.querySelectorAll('div').forEach(div => {
-                textToCopy += div.textContent + '\n';
-            });
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                alert('Selection copied to clipboard!');
-            });
-        });
-    }
-
 
     // ---------- Initialize ---
     updateElectronicsAvailability();
