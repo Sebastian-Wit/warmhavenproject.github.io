@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warm Haven: The Ultimate Animal Shelter Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #ffffff; 
+            color: #2d3748;
+        }
+        
+        /* Kickstarter Specific Colors */
+        .ks-green { background-color: #05ce78; }
+        .ks-green:hover { background-color: #04b669; }
+        .text-ks-green { color: #05ce78; }
+        
+        /* Zelle Purple */
+        .zelle-purple { background-color: #6d1ed4; }
+        
+        /* Smooth Scrolling */
+        html { scroll-behavior: smooth; }
+
+        /* Sticky Sidebar */
+        .sticky-sidebar {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 90px; /* Adjusted for header height */
+            height: fit-content;
+            max-height: 90vh;
+            overflow-y: auto; /* Scrollable sidebar if tiers get too long */
+        }
+        
+        /* Scrollbar for sidebar */
+        .sticky-sidebar::-webkit-scrollbar { width: 6px; }
+        .sticky-sidebar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+
+        /* Custom Typography for Story */
+        .story-text h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+        .story-text p {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+            color: #4a5568;
+        }
+        .story-text strong {
+            color: #2d3748;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- NAV -->
+    <nav class="border-b border-gray-200 py-4 sticky top-0 bg-white z-50">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-6">
+                <span class="text-2xl font-black text-teal-700 tracking-tighter cursor-pointer uppercase">WARMHAVEN</span>
+                <!-- Added Links Here -->
+                <a href="./index.html" class="hidden md:block text-sm font-medium text-gray-600 hover:text-teal-600">Home</a>
+                <a href="./custom_page_mockup.html" class="hidden md:block text-sm font-medium text-gray-600 hover:text-teal-600">Design Studio Demo</a>
+                <a href="#donate" class="hidden md:block text-sm font-medium text-gray-600 hover:text-teal-600">Our Mission</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#donate" class="zelle-purple text-white px-6 py-2 rounded font-bold text-sm hover:opacity-90 transition flex items-center gap-2">
+                    <span>Donate with Zelle®</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- TITLE HEADER -->
+    <header class="text-center pt-12 pb-8 px-4 max-w-4xl mx-auto">
+        <div class="inline-block bg-yellow-100 text-yellow-800 text-xs font-bold px-3 py-1 rounded-full mb-4">SEEKING FUNDING FOR 2026 LAUNCH</div>
+        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">Warm Haven: Design a Home, Save a Life.</h1>
+        <p class="text-xl text-gray-500">
+            The world's first fully customizable, solar-powered animal shelter system made from 100% ocean-bound plastics.
+        </p>
+    </header>
+
+    <!-- HERO / CTA SECTION -->
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        <!-- Left: Video/Image Area -->
+        <div class="lg:col-span-2 bg-black rounded-sm overflow-hidden relative group cursor-pointer h-[480px]">
+            <!-- REPLACED: Hero Image -->
+            <img src="./photos/hero.jpg" 
+                 alt="Puppy inside a Warm Haven shelter" class="w-full h-full object-cover opacity-95 group-hover:opacity-100 transition duration-300">
+            
+            <div class="absolute bottom-4 left-4 text-white bg-black/50 px-3 py-1 rounded text-sm">Concept Visualization</div>
+        </div>
+
+        <!-- Right: Donation Action -->
+        <div class="lg:col-span-1 flex flex-col justify-center py-2 bg-gray-50 p-6 rounded-xl border border-gray-200">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">100% Anonymous</h3>
+                <p class="text-gray-600 text-sm mb-4">We value privacy. No credit cards. No address forms. No data selling.</p>
+                <div class="bg-purple-50 text-purple-800 text-xs font-semibold px-3 py-2 rounded-full inline-block">Powered by Zelle®</div>
+            </div>
+
+            <div class="space-y-4">
+                <a href="#donate" class="block w-full py-5 zelle-purple text-white font-bold text-xl text-center rounded shadow hover:shadow-md transition transform active:scale-95">
+                    Donate via Zelle
+                </a>
+                <div class="bg-gray-50 border border-gray-200 p-3 rounded text-xs text-gray-600 text-center">
+                    Direct bank-to-bank transfer ensures every cent reaches the shelter construction fund.
+                </div>
+                <div class="flex gap-3">
+                    <button onclick="shareProject()" class="flex-1 border border-gray-300 py-3 font-bold text-gray-700 rounded hover:bg-white transition text-sm">Share</button>
+                    <a href="https://www.instagram.com" target="_blank" class="flex-1 border border-gray-300 py-3 font-bold text-gray-700 rounded hover:bg-white transition text-sm text-center flex items-center justify-center">Follow</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT GRID -->
+    <div class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- LEFT COLUMN: DYNAMIC CONTENT (8 cols) -->
+        <div class="lg:col-span-8">
+            
+            <!-- CAMPAIGN STORY -->
+            <div class="story-text">
+                <!-- 1. THE SOB STORY -->
+                <section class="mb-16">
+                    <h3 class="text-3xl font-extrabold text-gray-900 border-l-4 border-red-500 pl-4">The Silent Crisis</h3>
+                    
+                    <div class="mb-8 rounded-lg overflow-hidden shadow-lg">
+                        <img src="./photos/Shelter_Posing.png" 
+                             alt="Warm Haven team with rescued animals" class="w-full h-auto object-cover">
+                        <p class="text-sm text-gray-500 italic p-2 bg-gray-50 text-center">Our team on the ground, seeing the need firsthand.</p>
+                    </div>
+
+                    <p>
+                        Next winter, temperatures in many cities will drop below freezing. For us, it will be an inconvenience. For the estimated <strong>200 million stray animals</strong> worldwide, it will be a death sentence.
+                    </p>
+                    <p>
+                        We've all seen them. The shivering dog under the park bench. The cat trying to find warmth on a car hood. They are invisible victims of urbanization and climate change. Hypothermia doesn't discriminate, and it strikes fast. 
+                    </p>
+                    
+                    <!-- QUOTE -->
+                    <blockquote class="p-6 bg-gray-50 border-l-4 border-gray-700 rounded-r-lg italic text-xl text-gray-800 my-8">
+                        "The greatness of a nation and its moral progress can be judged by the way its animals are treated."
+                        <footer class="text-gray-600 text-base mt-2 font-bold">— Mahatma Gandhi</footer>
+                    </blockquote>
+
+                </section>
+
+                <!-- 2. THE SOLUTION (CUSTOMIZATION) -->
+                <section class="mb-16">
+                    <h3 class="text-3xl font-extrabold text-gray-900 border-l-4 border-teal-500 pl-4">Enter Warm Haven: Design Dignity</h3>
+                    
+                    <p>
+                        We won't just be building boxes; we will be building <strong>homes</strong>. And for the first time ever, <strong>YOU will be the architect.</strong>
+                    </p>
+                    <p>
+                        The Warm Haven system will be built on a revolutionary <span class="text-teal-600 font-bold">Custom Design Studio</span>. You get to choose the style, color, and features to match the animal's personality and environment.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-6 my-8">
+                        <div class="rounded-lg overflow-hidden shadow-lg">
+                            <img src="./photos/cat_shelter_advanced.png" alt="Custom wooden cat shelter" class="w-full h-64 object-cover">
+                             <p class="text-sm text-gray-500 italic p-2 bg-gray-50 text-center">Example: "The Rustic Lodge" featuring Architecture, Roof Type, and Trim Color customization.</p>
+                        </div>
+                        <div class="rounded-lg overflow-hidden shadow-lg">
+                            <img src="./photos/about-banner-3.png" alt="Custom floral dog shelter" class="w-full h-64 object-cover">
+                             <p class="text-sm text-gray-500 italic p-2 bg-gray-50 text-center">Example: "Spring Garden Theme" featuring Custom Decals, Finish, and External Design Elements.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-900 p-8 rounded-xl text-center mb-8 text-white">
+                        <h4 class="text-2xl font-bold mb-4 text-yellow-400">✨ Unlockable Categories</h4>
+                        <p class="text-gray-400 mb-4 text-sm">Every tier unlocks new ways to customize:</p>
+                        <div class="flex flex-wrap justify-center gap-2">
+                            <span class="px-3 py-1 bg-gray-800 rounded text-xs">Roof Type</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded text-xs">Insulation</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded text-xs">Solar Power</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded text-xs">Live Cam</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded text-xs">Food Automation</span>
+                            <span class="px-3 py-1 bg-gray-800 rounded text-xs">Theme Bundles</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. SUSTAINABILITY -->
+                <section class="mb-16">
+                    <h3 class="text-3xl font-extrabold text-gray-900 border-l-4 border-green-500 pl-4">Cleaning the Planet to Save Its Inhabitants</h3>
+                    
+                    <div class="mb-8 rounded-lg overflow-hidden shadow-lg">
+                        <img src="./photos/Ocean_Recycling.png" 
+                             alt="Collecting plastic from the ocean" class="w-full h-auto object-cover">
+                        <p class="text-sm text-gray-500 italic p-2 bg-gray-50 text-center">We turn ocean pollution into life-saving shelters.</p>
+                    </div>
+
+                    <p>
+                        Here is the kicker: <strong>Every single Warm Haven shelter will be made from 100% upcycled waste.</strong>
+                    </p>
+                    <ul class="space-y-2 mb-6 bg-green-50 p-6 rounded-lg">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <strong>Rot Proof:</strong> Immune to rain, snow, and mold.</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <strong>Thermal Lock:</strong> Designed to keep heat in during winter.</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <strong>Negative Carbon Footprint:</strong> Each shelter will remove 50lbs of trash from the ecosystem.</li>
+                    </ul>
+                </section>
+
+                <!-- 4. MANUFACTURING & RISKS -->
+                <section class="mb-16">
+                    <h3 class="text-3xl font-extrabold text-gray-900 border-l-4 border-gray-500 pl-4">Production & Transparency</h3>
+                    
+                    <div class="mb-8 rounded-lg overflow-hidden shadow-lg">
+                        <img src="./photos/recycling.png" 
+                             alt="Recycling factory floor" class="w-full h-auto object-cover">
+                        <p class="text-sm text-gray-500 italic p-2 bg-gray-50 text-center">Our prototype facility turning waste into walls.</p>
+                    </div>
+                    
+                    <p>
+                        We believe in total transparency. Manufacturing at this scale—turning raw waste into precision architectural panels—is complex. That's why we handle it in-house. 
+                    </p>
+                </section>
+                
+                <div class="text-center border-t border-gray-200 pt-12" id="donate">
+                    <div class="bg-purple-50 p-8 rounded-xl border border-purple-100 max-w-2xl mx-auto">
+                        <h3 class="text-2xl font-bold text-purple-900 mb-4">Simple, Secure Zelle Donation</h3>
+                        <p class="text-purple-800 mb-6">
+                            We skip the credit card forms to protect your privacy. Simply use your banking app to scan or send via Zelle.
+                        </p>
+                        <div class="bg-white p-4 rounded-lg shadow-inner mb-6">
+                            <p class="text-sm text-gray-500 uppercase tracking-wide font-bold mb-1">Send to:</p>
+                            <div class="text-3xl md:text-4xl font-black text-purple-600 break-all">donations@warmhaven.org</div>
+                            <p class="text-sm text-gray-500 mt-2">Recipient Name: <strong>Warm Haven Project LLC</strong></p>
+                        </div>
+                        
+                        <a href="#" class="inline-block bg-purple-600 text-white font-bold text-xl px-12 py-4 rounded-full shadow-lg hover:bg-purple-700 transition transform hover:scale-105">
+                            Open Zelle App
+                        </a>
+                        <p class="text-xs text-gray-500 mt-4">Please include your email in the Zelle memo to receive your Design Studio access link.</p>
+                    </div>
+                    
+                    <!-- Bottom Share Buttons -->
+                    <div class="flex gap-3 max-w-md mx-auto mt-8">
+                        <button onclick="shareProject()" class="flex-1 border border-gray-300 py-3 font-bold text-gray-700 rounded hover:bg-white transition text-sm">Share</button>
+                        <a href="https://www.instagram.com" target="_blank" class="flex-1 border border-gray-300 py-3 font-bold text-gray-700 rounded hover:bg-white transition text-sm text-center flex items-center justify-center">Follow</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN: REWARDS SIDEBAR (4 cols) -->
+        <div class="lg:col-span-4 relative">
+            <div class="sticky-sidebar space-y-6">
+                
+                <h4 class="font-bold text-gray-700 uppercase tracking-wider text-sm mb-4">Support Levels</h4>
+
+                <!-- TIER 1: $15 -->
+                <div class="border border-gray-200 rounded-lg p-6 bg-white hover:border-purple-500 transition group cursor-pointer relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-bl">STARTER</div>
+                    <h5 class="font-bold text-xl text-gray-900 mb-1">Donate $15</h5>
+                    <span class="text-gray-500 font-bold text-sm uppercase mb-4 block">The Essentials</span>
+                    <p class="text-sm text-gray-600 mb-4">The basics needed to save a life. Simple, effective, and warm.</p>
+                    
+                    <div class="bg-gray-50 p-3 rounded mb-4 text-xs text-gray-600">
+                        <strong>Unlocks Categories:</strong>
+                        <ul class="list-disc pl-4 mt-1 space-y-1">
+                            <li>Shelter Placement</li>
+                            <li>Size Selection</li>
+                            <li>Primary Base Color</li>
+                        </ul>
+                    </div>
+                    <a href="#donate" class="block w-full bg-gray-100 hover:bg-purple-600 hover:text-white text-gray-500 text-center py-2 rounded font-bold text-sm transition">Select via Zelle</a>
+                </div>
+
+                <!-- TIER 2: $45 -->
+                <div class="border border-gray-200 rounded-lg p-6 bg-white hover:border-purple-500 transition group cursor-pointer">
+                    <h5 class="font-bold text-xl text-gray-900 mb-1">Donate $45</h5>
+                    <span class="text-gray-500 font-bold text-sm uppercase mb-4 block">The Decorator</span>
+                    <p class="text-sm text-gray-600 mb-4">Add personality and style to make the shelter truly unique.</p>
+                    
+                    <div class="bg-gray-50 p-3 rounded mb-4 text-xs text-gray-600">
+                        <strong>Unlocks Tier 1 Plus:</strong>
+                        <ul class="list-disc pl-4 mt-1 space-y-1">
+                            <li>Accent Colors</li>
+                            <li>Custom Decals</li>
+                            <li>Signage Options (Name the house!)</li>
+                        </ul>
+                    </div>
+                    <a href="#donate" class="block w-full bg-gray-100 hover:bg-purple-600 hover:text-white text-gray-500 text-center py-2 rounded font-bold text-sm transition">Select via Zelle</a>
+                </div>
+
+                <!-- TIER 3: $90 -->
+                <div class="border border-gray-200 rounded-lg p-6 bg-white hover:border-purple-500 transition group cursor-pointer">
+                    <div class="absolute top-0 right-0 bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded-bl">POPULAR</div>
+                    <h5 class="font-bold text-xl text-gray-900 mb-1">Donate $90</h5>
+                    <span class="text-gray-500 font-bold text-sm uppercase mb-4 block">The Builder</span>
+                    <p class="text-sm text-gray-600 mb-4">Control the structural look and durability.</p>
+                    
+                    <div class="bg-gray-50 p-3 rounded mb-4 text-xs text-gray-600">
+                        <strong>Unlocks Tier 2 Plus:</strong>
+                        <ul class="list-disc pl-4 mt-1 space-y-1">
+                            <li>Architectural Design Style</li>
+                            <li>Roof Type Selection</li>
+                            <li>Trim Color & Finish</li>
+                            <li>Thermal Insulation Grade</li>
+                            <li>External Design Elements</li>
+                        </ul>
+                    </div>
+                    <a href="#donate" class="block w-full bg-gray-100 hover:bg-purple-600 hover:text-white text-gray-500 text-center py-2 rounded font-bold text-sm transition">Select via Zelle</a>
+                </div>
+
+                <!-- TIER 4: $200 -->
+                <div class="border border-gray-200 rounded-lg p-6 bg-white hover:border-purple-500 transition group cursor-pointer">
+                    <h5 class="font-bold text-xl text-gray-900 mb-1">Donate $200</h5>
+                    <span class="text-gray-500 font-bold text-sm uppercase mb-4 block">The Nurturer</span>
+                    <p class="text-sm text-gray-600 mb-4">Focus on the animal's internal comfort and happiness.</p>
+                    
+                    <div class="bg-gray-50 p-3 rounded mb-4 text-xs text-gray-600">
+                        <strong>Unlocks Tier 3 Plus:</strong>
+                        <ul class="list-disc pl-4 mt-1 space-y-1">
+                            <li>Interior Comfort & Bedding</li>
+                            <li>Animal Toys & Enrichment</li>
+                            <li>Automated Food & Water Systems</li>
+                        </ul>
+                    </div>
+                    <a href="#donate" class="block w-full bg-gray-100 hover:bg-purple-600 hover:text-white text-gray-500 text-center py-2 rounded font-bold text-sm transition">Select via Zelle</a>
+                </div>
+
+                <!-- TIER 5: $500 -->
+                <div class="border border-gray-200 rounded-lg p-6 bg-white hover:border-purple-500 transition group cursor-pointer">
+                    <h5 class="font-bold text-xl text-gray-900 mb-1">Donate $500</h5>
+                    <span class="text-gray-500 font-bold text-sm uppercase mb-4 block">The Technologist</span>
+                    <p class="text-sm text-gray-600 mb-4">High-tech integration for safety and monitoring.</p>
+                    
+                    <div class="bg-gray-50 p-3 rounded mb-4 text-xs text-gray-600">
+                        <strong>Unlocks Tier 4 Plus:</strong>
+                        <ul class="list-disc pl-4 mt-1 space-y-1">
+                            <li>Solar Power System</li>
+                            <li>Climate Control (Heating/Fans)</li>
+                            <li>Custom Lights</li>
+                            <li>Electronic Features (Cameras/GPS)</li>
+                        </ul>
+                    </div>
+                    <a href="#donate" class="block w-full bg-gray-100 hover:bg-purple-600 hover:text-white text-gray-500 text-center py-2 rounded font-bold text-sm transition">Select via Zelle</a>
+                </div>
+
+                <!-- TIER 6: $1,000 -->
+                <div class="border border-yellow-400 border-2 rounded-lg p-6 bg-yellow-50 hover:bg-white transition group cursor-pointer">
+                    <h5 class="font-bold text-xl text-gray-900 mb-1">Donate $1,000</h5>
+                    <span class="text-yellow-600 font-bold text-sm uppercase mb-4 block">The Visionary</span>
+                    <p class="text-sm text-gray-600 mb-4">The ultimate comprehensive package with exclusive themes.</p>
+                    
+                    <div class="bg-white p-3 rounded mb-4 text-xs text-gray-600 border border-gray-200">
+                        <strong>Unlocks EVERYTHING:</strong>
+                        <ul class="list-disc pl-4 mt-1 space-y-1">
+                            <li><strong>Custom Theme Bundles</strong></li>
+                            <li>VIP Factory Tour</li>
+                            <li>Named Plaque on Shelter</li>
+                            <li>All previous categories included</li>
+                        </ul>
+                    </div>
+                    <a href="#donate" class="block w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 text-center py-2 rounded font-bold text-sm transition">Select via Zelle</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function shareProject() {
+            const url = window.location.href;
+            prompt("Copy this link to share:", url);
+        }
+    </script>
+
+</body>
+</html>
